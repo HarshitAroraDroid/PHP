@@ -7,6 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+      img{
+        width: 90px;
+      }
+    </style>
 
     <title>CRUM Exercise</title>
   
@@ -26,9 +31,14 @@
         $row = mysqli_fetch_assoc($result)
     ?>
     &nbsp;&nbsp;<a class="btn btn-outline-dark" href="index.php" role="button">Back</a>
-    <form action="update_script.php" method="post">
+    <form action="update_script.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="id" value='<?php echo $id; ?>'>
       <div class="form-col">
+        <div class="col-md-4 mb-3">
+          <?='<img src="'.$row["image"].'" class="img-fluid img-thumbnail">';?>
+          <label for="image">Photo</label>
+          <input type="file" name="image" id="image" value="" />
+        </div>
         <div class="col-md-4 mb-3">
           <label for="fname">First name</label>
           <input type="text" class="form-control" name="fname" id="fname" placeholder="First name" 

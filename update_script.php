@@ -11,8 +11,13 @@ if(isset($_POST))
     $city = $_POST['city'];
     $state = $_POST['state'];
     $zip = $_POST['zip'];
+    $filename = $_FILES["image"]["name"]; 
+  	$tempname = $_FILES["image"]["tmp_name"];   
+    $image = "image/".$filename;
 
-	$sql = "UPDATE test_form SET f_name = '$fname',
+	$sql = "UPDATE test_form SET 
+							image = '$image',
+							 f_name = '$fname',
 							 l_name = '$lname',
 							 username = '$uname',
 							 city = '$city',
@@ -20,6 +25,14 @@ if(isset($_POST))
 							 zip = '$zip'
 						WHERE id = '$id'";
 
+	if (move_uploaded_file($tempname, $image))
+	{ 
+      $msg = "Image uploaded successfully"; 
+    }
+    else
+    { 
+      $msg = "Failed to upload image"; 
+  	}
 	if (mysqli_query($con, $sql))
 	{
 		$_SESSION['success'] ="Data Udpated Successfully";

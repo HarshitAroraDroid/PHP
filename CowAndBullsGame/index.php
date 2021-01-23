@@ -33,12 +33,6 @@
 
     <?php
         include 'connect.php';
-        if ( isset($_SESSION['success']))
-        {?>
-          <div class='alert alert-success' role='alert'>
-              <?php echo $_SESSION['success']; ?>
-          </div>
-        <?php }
         $sql = "SELECT * from game ORDER BY score desc LIMIT 5";
         $result = mysqli_query($con, $sql);
         if (mysqli_num_rows($result) > 0)
@@ -69,14 +63,14 @@
         <?php } 
         else{ ?>
             <div class='alert alert-danger' role='alert'>
-                <h1>No Data Found</h1>
+                <h1>No History Found</h1>
             </div>
         <?php } ?> 
     <br>
     <div align="center">
-        <form id="game" method="post">
+        <form id="game" action="start_game.php" method="post" enctype="multipart/form-data">
             <div class="col-md-4">
-                <input type="text" class="form-control" name="length" id="length" 
+                <input type="text" class="form-control" name="name" id="name" 
                         placeholder="Enter Your Name"><br>
             </div>
             <div class="col-md-12">

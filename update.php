@@ -28,7 +28,7 @@
         $id = $_GET['id'];     
         $sql = "SELECT * from test_form where id=$id";
         $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_assoc($result)
+        $row = mysqli_fetch_assoc($result);
     ?>
     &nbsp;&nbsp;<a class="btn btn-outline-dark" href="index.php" role="button">Back</a>
     <form action="update_script.php" method="post" enctype="multipart/form-data">

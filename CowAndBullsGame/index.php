@@ -62,9 +62,13 @@
       </table>
         <?php } 
         else{ ?>
-            <div class='alert alert-danger' role='alert'>
-                <h1>No History Found</h1>
-            </div>
+          <table class='table table-dark'>
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="3"><h3><center>No History Found</center></h3></th>
+                  </tr>
+              </thead>
+          </table>
         <?php } ?> 
     <br>
     <div align="center">
